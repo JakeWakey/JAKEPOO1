@@ -1,9 +1,6 @@
 package com.uam.egresados.egresadosuam.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.NamedQueries;
-import jakarta.persistence.NamedQuery;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,11 +12,13 @@ import java.util.UUID;
     @NamedQuery(name = "Egresado.all", query = "select e from Egresado e")
 })
 public class Egresado {
+
+    @Id
+    private UUID id;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
-    private UUID id;
     private Date fechaNacimiento;
     private Date fechaGraduacion;
 

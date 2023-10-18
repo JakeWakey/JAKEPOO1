@@ -1,6 +1,7 @@
 package com.uam.egresados.egresadosuam.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.util.Date;
@@ -8,6 +9,10 @@ import java.util.Date;
 @Entity
 @Table(name = "RegistroLaboral")
 public class RegistroLaboral {
+
+    @Id
+    private Integer id;
+
     private String cargo;
     private Date fechaInicio;
     private Date fechaFinal;
