@@ -7,7 +7,7 @@ import java.time.temporal.TemporalField;
 
 public class EntityManagerAdmin {
     private static EntityManager instance;
-    private static final String UNIDAD_PERSISTENCE = "EGRESADOSJPA";
+    private static final String UNIDAD_PERSISTENCE = "DEMOSQLSERVER";
     public static EntityManager getInstance() {
         EntityManagerFactory emf =
                 Persistence.createEntityManagerFactory(UNIDAD_PERSISTENCE);

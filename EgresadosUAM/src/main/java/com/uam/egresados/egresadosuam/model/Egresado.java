@@ -23,7 +23,8 @@ public class Egresado {
     private Date fechaNacimiento;
     private Date fechaGraduacion;
 
-    private ContactosDeEgresado contactos;
+    private ArrayList<TelefonosEgresado> contactos;
+    private ArrayList<CorreosEgresado> correos;
     private ArrayList<RegistroLaboral> cargoActual;
     private ArrayList<String> carreraEstudiada;
     private String etnia;
@@ -32,10 +33,11 @@ public class Egresado {
     public Egresado() {
     }
 
-    public Egresado(String primerNombre, String segundoNombre, String primerApellido, String segundoApellido,
-                    UUID id, Date fechaNacimiento, Date fechaGraduacion,
-                    ContactosDeEgresado contactos, ArrayList<RegistroLaboral> cargoActual,
-                    ArrayList<String> carreraEstudiada, String etnia, String tipoBeca) {
+    public Egresado(String primerNombre, String segundoNombre, String primerApellido,
+                    String segundoApellido, UUID id, Date fechaNacimiento, Date fechaGraduacion,
+                    ArrayList<TelefonosEgresado> contactos, ArrayList<CorreosEgresado> correos,
+                    ArrayList<RegistroLaboral> cargoActual, ArrayList<String> carreraEstudiada, String etnia,
+                    String tipoBeca) {
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
@@ -44,6 +46,7 @@ public class Egresado {
         this.fechaNacimiento = fechaNacimiento;
         this.fechaGraduacion = fechaGraduacion;
         this.contactos = contactos;
+        this.correos = correos;
         this.cargoActual = cargoActual;
         this.carreraEstudiada = carreraEstudiada;
         this.etnia = etnia;
@@ -106,12 +109,21 @@ public class Egresado {
         this.fechaGraduacion = fechaGraduacion;
     }
 
-    public ContactosDeEgresado getContactos() {
+
+    public ArrayList<TelefonosEgresado> getContactos() {
         return contactos;
     }
 
-    public void setContactos(ContactosDeEgresado contactos) {
+    public void setContactos(ArrayList<TelefonosEgresado> contactos) {
         this.contactos = contactos;
+    }
+
+    public ArrayList<CorreosEgresado> getCorreos() {
+        return correos;
+    }
+
+    public void setCorreos(ArrayList<CorreosEgresado> correos) {
+        this.correos = correos;
     }
 
     public ArrayList<RegistroLaboral> getCargoActual() {
@@ -158,6 +170,7 @@ public class Egresado {
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", fechaGraduacion=" + fechaGraduacion +
                 ", contactos=" + contactos +
+                ", correos=" + correos +
                 ", cargoActual=" + cargoActual +
                 ", carreraEstudiada=" + carreraEstudiada +
                 ", etnia='" + etnia + '\'' +

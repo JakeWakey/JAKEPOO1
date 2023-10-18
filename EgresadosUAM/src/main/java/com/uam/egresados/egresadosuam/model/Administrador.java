@@ -11,6 +11,22 @@ public class Administrador {
         this.contrasena = contrasena;
     }
 
+    public String getNombreDeUsuario() {
+        return nombreDeUsuario;
+    }
+
+    public void setNombreDeUsuario(String nombreDeUsuario) {
+        this.nombreDeUsuario = nombreDeUsuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
     @Override
     public String toString() {
         return "Administrador{" +

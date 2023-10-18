@@ -4,15 +4,15 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
 
-        <persistence-unit name="EGRESADOSJPA">
+    <persistence-unit name="DEMOSQLSERVER">
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=Egresados BD"/>
-            <property name="jakarta.persistence.jdbc.user" value="admin"/>
-            <property name="jakarta.persistence.jdbc.password" value="admin"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;databaseName=Egresado BD;encrypt=true;trustServerCertificate=true;"/>
+            <property name="jakarta.persistence.jdbc.user" value="prueba"/>
+            <property name="jakarta.persistence.jdbc.password" value="daniel"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
         </properties>
-        </persistence-unit>
+    </persistence-unit>
     </persistence>
