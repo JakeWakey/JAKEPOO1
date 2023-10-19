@@ -11,6 +11,9 @@ public class Main {
     public static void main(String[] args) {
         EgresadosIDAO dao = new EgresadosImplIDAO();
         List<Egresado> egresadoList = dao.getAll("Egresado.all", Egresado.class);
-
+        Egresado egresado = new Egresado();
+        egresado.setId(1);
+        egresado.setPrimerNombre("Daniel");
+        dao.insert(egresado);
     }
 }

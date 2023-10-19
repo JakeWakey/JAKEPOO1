@@ -44,7 +44,7 @@ public class Egresado {
     }
 
     public Egresado(String primerNombre, String segundoNombre, String primerApellido,
-                    String segundoApellido, UUID id, Date fechaNacimiento, Date fechaGraduacion,
+                    String segundoApellido, Integer id, Date fechaNacimiento, Date fechaGraduacion,
                     ArrayList<TelefonosEgresado> contactos, ArrayList<CorreosEgresado> correos,
                     ArrayList<RegistroLaboral> cargoActual, ArrayList<String> carreraEstudiada, String etnia,
                     String tipoBeca) {

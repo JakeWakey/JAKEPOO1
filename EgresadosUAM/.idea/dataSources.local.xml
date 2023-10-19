@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-232.10072.27">
-    <data-source name="EgresadoBD" uuid="cb2ac5e8-a529-4f05-a64a-2d5e8f966182">
+    <data-source name="EgresadoDB" uuid="cb2ac5e8-a529-4f05-a64a-2d5e8f966182">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL_LOCALDB" exact-version="0" />
       <secret-storage>master_key</secret-storage>
-      <user-name>prueba</user-name>
+      <user-name>daniel</user-name>
       <schema-mapping />
     </data-source>
   </component>
