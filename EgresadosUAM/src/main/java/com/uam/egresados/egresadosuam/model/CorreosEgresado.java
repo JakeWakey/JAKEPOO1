@@ -1,27 +1,12 @@
 package com.uam.egresados.egresadosuam.model;
 
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jdk.jfr.DataAmount;
+@Embeddable
 public class CorreosEgresado {
     private String correo;
 
-    public CorreosEgresado() {
-    }
-
-    public CorreosEgresado(String correo) {
-        this.correo = correo;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    @Override
-    public String toString() {
-        return "CorreosEgresado{" +
-                "correo='" + correo + '\'' +
-                '}';
-    }
+    private Egresado egresado;
 }

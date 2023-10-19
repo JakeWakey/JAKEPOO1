@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -14,17 +15,27 @@ import java.util.UUID;
 public class Egresado {
 
     @Id
-    private UUID id;
+    private Integer id;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
     private String segundoApellido;
     private Date fechaNacimiento;
     private Date fechaGraduacion;
+    @ElementCollection
+    @CollectionTable(
+            name = "TelefonosEgresado",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
+    private List<TelefonosEgresado> contactos;
+    @ElementCollection
+    @CollectionTable(
+            name= "CorreosEgresado",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
+    private List<CorreosEgresado> correos;
 
-    private ArrayList<TelefonosEgresado> contactos;
-    private ArrayList<CorreosEgresado> correos;
-    private ArrayList<RegistroLaboral> cargoActual;
+    private List<RegistroLaboral> cargoActual;
     private ArrayList<String> carreraEstudiada;
     private String etnia;
     private String tipoBeca;
