@@ -19,7 +19,7 @@ public class Egresado {
 
 
     @Id
-    private UUID id;
+    private Integer id;
     private String primerNombre;
     private String segundoNombre;
     private String primerApellido;
@@ -39,9 +39,18 @@ public class Egresado {
     )
     private List<CorreosEgresado> correos;
 
-
+    @ElementCollection
+    @CollectionTable(
+            name = "RegistroLaboral",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
     private List<RegistroLaboral> cargoActual;
-    private ArrayList<String> carreraEstudiada;
+    @ElementCollection
+    @CollectionTable(
+            name = "Carreras",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
+    private List<Carreras> carreraEstudiada;
     private String etnia;
     private String tipoBeca;
 
@@ -49,17 +58,12 @@ public class Egresado {
     public Egresado() {
     }
 
-
-    public Egresado(String primerNombre, String segundoNombre, String primerApellido,
-                    String segundoApellido, UUID id, Date fechaNacimiento, Date fechaGraduacion,
-                    ArrayList<TelefonosEgresado> contactos, ArrayList<CorreosEgresado> correos,
-                    ArrayList<RegistroLaboral> cargoActual, ArrayList<String> carreraEstudiada, String etnia,
-                    String tipoBeca) {
+    public Egresado(Integer id, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, Date fechaGraduacion, List<TelefonosEgresado> contactos, List<CorreosEgresado> correos, List<RegistroLaboral> cargoActual, List<Carreras> carreraEstudiada, String etnia, String tipoBeca) {
+        this.id = id;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
-        this.id = id;
         this.fechaNacimiento = fechaNacimiento;
         this.fechaGraduacion = fechaGraduacion;
         this.contactos = contactos;
@@ -69,7 +73,6 @@ public class Egresado {
         this.etnia = etnia;
         this.tipoBeca = tipoBeca;
     }
-
 
     public String getPrimerNombre() {
         return primerNombre;
@@ -134,109 +137,86 @@ public class Egresado {
         this.segundoApellido = segundoApellido;
     }
 
-
-    public UUID getId() {
+    public Integer getId() {
         return id;
     }
 
-
-    public void setId(UUID id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-
 
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
 
     public Date getFechaGraduacion() {
         return fechaGraduacion;
     }
 
-
     public void setFechaGraduacion(Date fechaGraduacion) {
         this.fechaGraduacion = fechaGraduacion;
     }
 
-
-
-
-    public ArrayList<TelefonosEgresado> getContactos() {
-        return (ArrayList<TelefonosEgresado>) contactos;
+    public List<TelefonosEgresado> getContactos() {
+        return contactos;
     }
 
-
-    public void setContactos(ArrayList<TelefonosEgresado> contactos) {
+    public void setContactos(List<TelefonosEgresado> contactos) {
         this.contactos = contactos;
     }
 
-
-    public ArrayList<CorreosEgresado> getCorreos() {
-        return (ArrayList<CorreosEgresado>) correos;
+    public List<CorreosEgresado> getCorreos() {
+        return correos;
     }
 
-
-    public void setCorreos(ArrayList<CorreosEgresado> correos) {
+    public void setCorreos(List<CorreosEgresado> correos) {
         this.correos = correos;
     }
 
-
-    public ArrayList<RegistroLaboral> getCargoActual() {
-        return (ArrayList<RegistroLaboral>) cargoActual;
+    public List<RegistroLaboral> getCargoActual() {
+        return cargoActual;
     }
 
-
-    public void setCargoActual(ArrayList<RegistroLaboral> cargoActual) {
+    public void setCargoActual(List<RegistroLaboral> cargoActual) {
         this.cargoActual = cargoActual;
     }
 
-
-    public ArrayList<String> getCarreraEstudiada() {
+    public List<Carreras> getCarreraEstudiada() {
         return carreraEstudiada;
     }
 
-
-    public void setCarreraEstudiada(ArrayList<String> carreraEstudiada) {
+    public void setCarreraEstudiada(List<Carreras> carreraEstudiada) {
         this.carreraEstudiada = carreraEstudiada;
     }
-
 
     public String getEtnia() {
         return etnia;
     }
 
-
     public void setEtnia(String etnia) {
         this.etnia = etnia;
     }
-
 
     public String getTipoBeca() {
         return tipoBeca;
     }
 
-
     public void setTipoBeca(String tipoBeca) {
         this.tipoBeca = tipoBeca;
     }
 
-
-
-
     @Override
     public String toString() {
         return "Egresado{" +
-                "primerNombre='" + primerNombre + '\'' +
+                "id=" + id +
+                ", primerNombre='" + primerNombre + '\'' +
                 ", segundoNombre='" + segundoNombre + '\'' +
                 ", primerApellido='" + primerApellido + '\'' +
                 ", segundoApellido='" + segundoApellido + '\'' +
-                ", id=" + id +
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", fechaGraduacion=" + fechaGraduacion +
                 ", contactos=" + contactos +
