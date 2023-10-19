@@ -34,9 +34,18 @@ public class Egresado {
             joinColumns = @JoinColumn(name = "egresado_id")
     )
     private List<CorreosEgresado> correos;
-
+    @ElementCollection
+    @CollectionTable(
+            name = "RegistroLaboral",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
     private List<RegistroLaboral> cargoActual;
-    private ArrayList<String> carreraEstudiada;
+    @ElementCollection
+    @CollectionTable(
+            name = "CarrerasEgresado",
+            joinColumns = @JoinColumn(name = "egresado_id")
+    )
+    private List<String> carreraEstudiada;
     private String etnia;
     private String tipoBeca;
 
@@ -61,6 +70,14 @@ public class Egresado {
         this.carreraEstudiada = carreraEstudiada;
         this.etnia = etnia;
         this.tipoBeca = tipoBeca;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPrimerNombre() {
@@ -95,14 +112,6 @@ public class Egresado {
         this.segundoApellido = segundoApellido;
     }
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
     public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -119,36 +128,35 @@ public class Egresado {
         this.fechaGraduacion = fechaGraduacion;
     }
 
-
-    public ArrayList<TelefonosEgresado> getContactos() {
+    public List<TelefonosEgresado> getContactos() {
         return contactos;
     }
 
-    public void setContactos(ArrayList<TelefonosEgresado> contactos) {
+    public void setContactos(List<TelefonosEgresado> contactos) {
         this.contactos = contactos;
     }
 
-    public ArrayList<CorreosEgresado> getCorreos() {
+    public List<CorreosEgresado> getCorreos() {
         return correos;
     }
 
-    public void setCorreos(ArrayList<CorreosEgresado> correos) {
+    public void setCorreos(List<CorreosEgresado> correos) {
         this.correos = correos;
     }
 
-    public ArrayList<RegistroLaboral> getCargoActual() {
+    public List<RegistroLaboral> getCargoActual() {
         return cargoActual;
     }
 
-    public void setCargoActual(ArrayList<RegistroLaboral> cargoActual) {
+    public void setCargoActual(List<RegistroLaboral> cargoActual) {
         this.cargoActual = cargoActual;
     }
 
-    public ArrayList<String> getCarreraEstudiada() {
+    public List<String> getCarreraEstudiada() {
         return carreraEstudiada;
     }
 
-    public void setCarreraEstudiada(ArrayList<String> carreraEstudiada) {
+    public void setCarreraEstudiada(List<String> carreraEstudiada) {
         this.carreraEstudiada = carreraEstudiada;
     }
 
@@ -167,7 +175,6 @@ public class Egresado {
     public void setTipoBeca(String tipoBeca) {
         this.tipoBeca = tipoBeca;
     }
-
 
     @Override
     public String toString() {
