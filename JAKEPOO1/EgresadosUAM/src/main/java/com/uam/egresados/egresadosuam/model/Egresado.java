@@ -20,11 +20,17 @@ public class Egresado {
 
     @Id
     private Integer id;
+    @Column(name = "primerNombre")
     private String primerNombre;
+    @Column(name = "segundoNombre")
     private String segundoNombre;
+    @Column(name = "primerApellido")
     private String primerApellido;
+    @Column(name = "segundoApellido")
     private String segundoApellido;
+    @Column(name = "fechaNacimiento")
     private Date fechaNacimiento;
+    @Column(name = "fechaGraduacion")
     private Date fechaGraduacion;
     @ElementCollection
     @CollectionTable(
@@ -51,14 +57,14 @@ public class Egresado {
             joinColumns = @JoinColumn(name = "egresado_id")
     )
     private List<Carreras> carreraEstudiada;
+    @Column(name = "etnia")
     private String etnia;
-    private String tipoBeca;
 
 
     public Egresado() {
     }
 
-    public Egresado(Integer id, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, Date fechaGraduacion, List<TelefonosEgresado> contactos, List<CorreosEgresado> correos, List<RegistroLaboral> cargoActual, List<Carreras> carreraEstudiada, String etnia, String tipoBeca) {
+    public Egresado(Integer id, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, Date fechaNacimiento, Date fechaGraduacion, List<TelefonosEgresado> contactos, List<CorreosEgresado> correos, List<RegistroLaboral> cargoActual, List<Carreras> carreraEstudiada, String etnia) {
         this.id = id;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
@@ -71,7 +77,6 @@ public class Egresado {
         this.cargoActual = cargoActual;
         this.carreraEstudiada = carreraEstudiada;
         this.etnia = etnia;
-        this.tipoBeca = tipoBeca;
     }
 
     public String getPrimerNombre() {
@@ -201,14 +206,6 @@ public class Egresado {
         this.etnia = etnia;
     }
 
-    public String getTipoBeca() {
-        return tipoBeca;
-    }
-
-    public void setTipoBeca(String tipoBeca) {
-        this.tipoBeca = tipoBeca;
-    }
-
     @Override
     public String toString() {
         return "Egresado{" +
@@ -224,7 +221,6 @@ public class Egresado {
                 ", cargoActual=" + cargoActual +
                 ", carreraEstudiada=" + carreraEstudiada +
                 ", etnia='" + etnia + '\'' +
-                ", tipoBeca='" + tipoBeca + '\'' +
                 '}';
     }
 }

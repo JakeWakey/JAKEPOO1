@@ -14,8 +14,8 @@ public class Main {
         List<Egresado> egresadoList = dao.getAll("Egresado.all", Egresado.class);
         Egresado egresado = new Egresado();
         try {
-            egresado.setId(1);
-            egresado.setPrimerNombre("Daniel");
+            egresado.setId(2);
+            egresado.setPrimerNombre("Nes");
         } catch (Exception e) {
             e.printStackTrace();
         }
